@@ -4,3 +4,4 @@ build/
 dist/
 package-lock.json
 mqtt.json
+xz-mqtt.tar

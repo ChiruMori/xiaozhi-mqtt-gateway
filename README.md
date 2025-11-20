@@ -2,10 +2,31 @@
 
 ## 项目概述
 
-本项目是基于虾哥开源的 [MQTT+UDP 到 WebSocket 桥接服务](https://github.com/78/xiaozhi-mqtt-gateway)，进行了修改，以适应[xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server)。
+原项目是基于虾哥开源的 [MQTT+UDP 到 WebSocket 桥接服务](https://github.com/78/xiaozhi-mqtt-gateway)，进行了修改，以适应[xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server)
+
+在原项目基础上，本项目添加了 Docker 部署支持，没有合并到原项目的计划
 
 ## 部署使用
-部署使用请[参考这里](https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/mqtt-gateway-integration.md)。
+
+本项目采用的部署过程参考[原项目使用说明](https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/mqtt-gateway-integration.md)。
+
+### 需要开放以下端口
+
+- `8007`：TCP
+- `1883`：TCP
+- `8884`: UDP
+
+### 需要修改配置文件
+
+1. 将 `config/mqtt.json.example` 复制到宿主机，并修改 `docker-compose.yml` 中的挂载路径 
+2. 按实际情况修改 `config/mqtt.json` 中的配置项，主要关注 `chat_servers` 字段
+3. 按实际情况检查、修改 `docker-compose.yml` 中的环境变量配置、路径等
+
+### 启动服务
+
+```shell
+docker-compose up -d
+```
 
 ## 设备管理接口说明
 
