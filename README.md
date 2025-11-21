@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-原项目是基于虾哥开源的 [MQTT+UDP 到 WebSocket 桥接服务](https://github.com/78/xiaozhi-mqtt-gateway)，进行了修改，以适应[xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server)
+[原项目](https://github.com/xinnan-tech/xiaozhi-mqtt-gateway)是基于虾哥开源的 [MQTT+UDP 到 WebSocket 桥接服务](https://github.com/78/xiaozhi-mqtt-gateway)，进行了修改，以适应[xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server)
 
 在原项目基础上，本项目添加了 Docker 部署支持，没有合并到原项目的计划
 
@@ -27,6 +27,18 @@
 ```shell
 docker-compose up -d
 ```
+
+正常启动时，控制台有如下日志：
+
+```
+配置已更新 /app/config/mqtt.json
+MQTT 服务器正在监听端口 1883
+UDP 服务器正在监听 ip:8884
+管理API服务启动在端口 8007
+API今日临时密钥: Authorization: Bearer xxx...
+```
+
+至此服务部署步骤完成，可以返回[原教程第二部分](https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/mqtt-gateway-integration.md)继续后续操作（单模块部署需查看第三部分）
 
 ## 设备管理接口说明
 
